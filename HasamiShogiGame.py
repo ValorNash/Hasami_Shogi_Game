@@ -108,22 +108,23 @@ class HasamiShogiGame:
                     next_space = (chr(space) + row1)
                     is_empty = self.get_square_occupant(next_space)
                     if is_empty != "NONE":
-                        return False # Piece in the way
+                        return False  # Piece in the way
 
             if col2 > col1:
                 for space in range(new_col1 + 1, new_col2):
                     next_space = (chr(space) + row1)
                     is_empty = self.get_square_occupant(next_space)
                     if is_empty != "NONE":
-                        return False # Piece in the way
+                        return False  # Piece in the way
 
         self.set_location(current_loc, ".")
-        if check == "RED": # If Red's turn, set new location to Red's Piece
+        if check == "RED":  # If Red's turn, set new location to Red's Piece
             self.set_location(new_loc, "R")
-        if check == "BLACK": # If Black's turn, set new location to Black's Piece
+        if check == "BLACK":  # If Black's turn, set new location to Black's Piece
             self.set_location(new_loc, "B")
         self.is_captured(new_loc)
-        self._counter += 1 # Set next player's turn
+        self._counter += 1  # Set next player's turn
+        return True
 
 
     def get_square_occupant(self, location):
